@@ -1,0 +1,68 @@
+@startuml
+actor "Encargada Superior" as Superior
+actor "Colaborador" as Colaborador
+
+usecase "Login" as UC1
+usecase "Subir Archivos" as UC2
+usecase "Visualizar Documentos" as UC3
+usecase "Descargar Documentos" as UC4
+usecase "Ordenar Documentos por Prioridad" as UC5
+usecase "Alertar sobre Documentos Prioritarios" as UC6
+usecase "Alertar sobre Inicio de Sesión" as UC7
+usecase "CRUD de Documentos" as UC8
+usecase "Gestionar Encuestas" as UC9
+usecase "Visualizar Resultados de Encuestas" as UC10
+usecase "Conexión a Base de Datos" as UC11
+usecase "Configurar Accesos de Usuarios" as UC12
+usecase "Auditar Accesos" as UC13
+usecase "Gestionar Usuarios" as UC14
+usecase "Respaldar Documentos en la Nube" as UC15
+usecase "Gestionar Permisos de Documentos" as UC16
+
+' Relaciones de la Encargada Superior con cardinalidad
+Superior "1" --> "1..*" UC1 : "Autenticarse"
+Superior "1" --> "1..*" UC2 : "Subir archivos"
+Superior "1" --> "1..*" UC3 : "Visualizar todos los documentos"
+Superior "1" --> "1..*" UC4 : "Descargar documentos"
+Superior "1" --> "1..*" UC5 : "Ordenar por prioridad"
+Superior "1" --> "1..*" UC6 : "Generar alertas de prioridad"
+Superior "1" --> "1..*" UC7 : "Recibir alertas de inicio de sesión"
+Superior "1" --> "1..*" UC8 : "Gestionar CRUD completo"
+Superior "1" --> "1..*" UC9 : "Crear y gestionar encuestas"
+Superior "1" --> "1..*" UC10 : "Visualizar resultados completos"
+Superior "1" --> "1..*" UC11 : "Interfaz directa con base de datos"
+Superior "1" --> "1..*" UC12 : "Configurar accesos y permisos"
+Superior "1" --> "1..*" UC13 : "Auditar accesos a la aplicación"
+Superior "1" --> "1..*" UC14 : "Gestionar cuentas de usuario"
+Superior "1" --> "1..*" UC15 : "Configurar respaldo en la nube"
+Superior "1" --> "1..*" UC16 : "Gestionar permisos de documentos"
+
+' Relaciones del Colaborador con cardinalidad
+Colaborador "1..*" --> "1" UC1 : "Autenticarse"
+Colaborador "1..*" --> "1" UC2 : "Subir archivos"
+Colaborador "1..*" --> "1" UC3 : "Visualizar documentos permitidos"
+Colaborador "1..*" --> "1" UC4 : "Descargar documentos permitidos"
+Colaborador "1..*" --> "1" UC7 : "Recibir alertas de inicio de sesión"
+Colaborador "1..*" --> "1" UC10 : "Visualizar resultados de encuestas"
+Colaborador "1..*" --> "1" UC15 : "Acceso limitado a la nube"
+
+' Extensiones y asociaciones con cardinalidad y relaciones extend/include
+UC7 "1" .> "1" UC1 : "<<Extiende>>"
+UC6 "1" .> "1" UC5 : "<<Extiende>>"
+UC5 "1" .> "1..*" UC3 : "<<Extiende>>"
+UC16 "1" .> "1..*" UC2 : "<<Extiende>>"
+UC16 "1" .> "1..*" UC3 : "<<Extiende>>"
+
+UC8 "1..*" <|-- UC12 : "<<Incluye>>"
+UC8 "1..*" <|-- UC13 : "<<Incluye>>"
+UC2 "1..*" <|-- UC15 : "<<Incluye>>"
+UC3 "1..*" <|-- UC15 : "<<Incluye>>"
+UC5 "1" <|-- UC8 : "<<Incluye>>"
+UC14 "1..*" <|-- UC12 : "<<Incluye>>"
+UC14 "1..*" <|-- UC16 : "<<Incluye>>"
+
+@enduml
+
+
+
+
