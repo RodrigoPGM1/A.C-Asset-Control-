@@ -1,12 +1,32 @@
-# A.C-Asset-Control-
-Se trabaja con metodologia SCRUM
-Lenguajes:
-    1.-CSS.
-    2.-JS.
-    3.-PlantUML.
-    Framework:
-        1.-Node.js.
-        2.-Bootstrap.
-Base de Datos:
-    1.-Mysql
-Advertencia: El proyecto es LOCALHOST.
+# 🚀 A.C-Asset-Control 🚀
+
+**Proyecto de Gestión de Activos**
+
+## 🛠 Metodología
+Este proyecto se desarrolla bajo la metodología **SCRUM**, asegurando un enfoque ágil y colaborativo.
+
+## 💻 Lenguajes Utilizados
+- **CSS**: Para el diseño y estilo.
+- **JavaScript (JS)**: Para la lógica y funcionalidades.
+- **PlantUML**: Para la creación de diagramas UML.
+
+## 📚 Frameworks
+- **Node.js**: Para la construcción del servidor y backend.
+- **Bootstrap**: Para un diseño responsivo y atractivo.
+
+## 🗄️ Base de Datos
+- **MySQL**: Base de datos relacional para el almacenamiento seguro y eficiente de datos.
+
+## ⚠️ Advertencia
+Este proyecto está diseñado para ejecutarse exclusivamente en **LOCALHOST**.
+
+---
+
+📅 **Fecha de Entrega UML**: _27/08/2024_
+
+---
+
+¡Sigue estos pasos para comenzar a trabajar y disfruta del desarrollo! 😎
+
+
+
