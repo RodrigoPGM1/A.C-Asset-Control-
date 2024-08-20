@@ -1,15 +1,16 @@
-# A.C-Asset-Control-
-Se trabaja con metodologia SCRUM
-Lenguajes:
-    1.-CSS.
-    2.-JS.
-    3.-PlantUML.
-    Framework:
-        1.-Node.js.
-        2.-Bootstrap.
-Base de Datos:
-    1.-Mysql
-Advertencia: El proyecto es LOCALHOST.
+A.C-Asset-Control
+Este proyecto se desarrolla utilizando la metodología SCRUM.
 
+Lenguajes
+CSS
+JavaScript (JS)
+PlantUML
+Frameworks
+Node.js
+Bootstrap
+Base de Datos
+MySQL
+Advertencia
+El proyecto está diseñado para ser ejecutado en LOCALHOST.
 
-** Fecha de Entrega UML: _27/08/2024_** 
+Fecha de Entrega UML: 27/08/2024
