@@ -9,4 +9,4 @@ Lenguajes:
         2.-Bootstrap.
 Base de Datos:
     1.-Mysql
-Advertencia: El proyecto es LOCALHOST
+Advertencia: El proyecto es LOCALHOST.
