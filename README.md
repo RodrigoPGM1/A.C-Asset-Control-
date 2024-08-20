@@ -10,3 +10,6 @@ Lenguajes:
 Base de Datos:
     1.-Mysql
 Advertencia: El proyecto es LOCALHOST.
+
+
+** Fecha de Entrega UML: _27/08/2024_** 
