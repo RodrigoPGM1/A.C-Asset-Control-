@@ -1,0 +1,10 @@
+Documentacio
+Elvis: diagrama de casos de uso
+Chavez: entidad relacion
+Marx: diagrama de clases
+Danilo: diagrama de secuencia
+David: diagrama de objetos
+Branco: diagrama de componentes
+Jean Pierre: diagrama de despliegue
+
+TODOS: diagrama de actividades
