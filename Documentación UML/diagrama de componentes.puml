@@ -1,0 +1,71 @@
+@startuml
+!define RECTANGLE class
+
+RECTANGLE AplicacionWeb {
+  + subirArchivo() : void
+  + mostrarAlerta(mensaje: String) : void
+  + enviarNotificacionPorCorreo(correo: String, mensaje: String) : void
+}
+
+RECTANGLE ServicioDeAlertas {
+  + verificarTiempoDeRespuestaDelArchivo() : void
+  + mostrarAlerta(mensaje: String) : void
+}
+
+RECTANGLE ServicioDeCorreo {
+  + enviarCorreo(correo: String, mensaje: String) : void
+}
+
+RECTANGLE ServicioDeArchivos {
+  + subirArchivo(archivo: Archivo) : void
+  + etiquetarArchivo(archivo: Archivo, etiquetas: List<String>) : void
+  + priorizarArchivo(archivo: Archivo, prioridad: Prioridad) : void
+}
+
+RECTANGLE ServicioDeUsuarios {
+  + obtenerUsuarioActual() : Usuario
+}
+
+RECTANGLE ServicioDePrioridades {
+  + establecerPrioridadDelArchivo(archivo: Archivo, prioridad: Prioridad) : void
+}
+
+RECTANGLE ServicioDeEtiquetas {
+  + etiquetarArchivo(archivo: Archivo, etiquetas: List<String>) : void
+}
+
+RECTANGLE Usuario {
+  - correo: String
+  - nombreDeUsuario: String
+  + obtenerCorreo() : String
+}
+
+RECTANGLE Archivo {
+  - nombreDeArchivo: String
+  - tamañoDeArchivo: int
+  - etiquetas: List<String>
+  - prioridad: Prioridad
+}
+
+RECTANGLE Prioridad {
+  - nivel: String
+}
+
+AplicacionWeb --> ServicioDeAlertas : Usa
+AplicacionWeb --> ServicioDeCorreo : Usa
+AplicacionWeb --> ServicioDeArchivos : Usa
+AplicacionWeb --> ServicioDeUsuarios : Usa
+AplicacionWeb --> ServicioDePrioridades : Usa
+AplicacionWeb --> ServicioDeEtiquetas : Usa
+
+ServicioDeAlertas --> ServicioDeCorreo : Usa
+
+ServicioDeArchivos --> ServicioDeUsuarios : Usa
+ServicioDeArchivos --> ServicioDePrioridades : Usa
+ServicioDeArchivos --> ServicioDeEtiquetas : Usa
+
+ServicioDeUsuarios --> Usuario : Gestiona
+ServicioDeArchivos --> Archivo : Gestiona
+ServicioDePrioridades --> Prioridad : Gestiona
+ServicioDeEtiquetas --> Archivo : Gestiona
+@enduml

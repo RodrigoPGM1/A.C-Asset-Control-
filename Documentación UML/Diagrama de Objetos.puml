@@ -1,0 +1,36 @@
+@startuml
+object Usuario {
+    +nombre: String
+    +correo: String
+}
+
+object SistemaWeb {
+    +alertaBienvenida: String
+    +notificaInicioSesion(): void
+    +validarArchivo(archivo: Archivo): Boolean
+    +subirArchivo(archivo: Archivo): void
+}
+
+object ServicioDeAlertas {
+    +notificarProblemaTiempoRespuesta(archivo: Archivo): void
+}
+
+object Archivo {
+    +nombre: String
+    +prioridad: Integer
+    +etiquetas: List<String>
+    +tiempoRespuesta: Integer
+}
+
+Usuario -down-> SistemaWeb : Inicia sesión
+SistemaWeb -right-> Usuario : Muestra alerta de bienvenida
+SistemaWeb -right-> Usuario : Notifica inicio de sesión
+
+Usuario -down-> SistemaWeb : Selecciona archivo para subir
+SistemaWeb -right-> Archivo : Validar archivo
+SistemaWeb -down-> ServicioDeAlertas : Notificar problema de tiempo de respuesta
+ServicioDeAlertas -right-> Usuario : Muestra alerta si hay problema
+
+SistemaWeb -down-> Archivo : Procesar subida del archivo
+
+@enduml

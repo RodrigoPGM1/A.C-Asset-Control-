@@ -1,0 +1,25 @@
+@startuml
+actor Administrador
+participant "Sistema Web" as Web
+participant "Servicio de Alerta" as Alerta
+participant "Servicio de Correo" as Correo
+
+== Inicio de sesión y alerta ==
+Administrador -> Web : Accede a la página
+Web -> Administrador : Muestra alerta de bienvenida
+Administrador -> Web : Inicia sesión
+Web -> Correo : Envía confirmación de inicio de sesión
+Correo -> Administrador : Recibe correo de confirmación
+
+== Subida de archivo ==
+Administrador -> Web : Selecciona archivo para subir
+Web -> Web : Valida archivo (prioridad, etiquetas, etc.)
+alt Archivo con tiempo de respuesta prolongado
+    Web -> Alerta : Notifica problema de tiempo de respuesta
+    Alerta -> Administrador : Muestra alerta de tiempo de respuesta
+end
+Web -> Web : Procesa subida del archivo
+Web -> Alerta : Notifica estado del archivo si hay problemas
+
+@enduml
+

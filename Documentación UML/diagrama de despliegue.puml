@@ -1,0 +1,41 @@
+@startuml
+
+node "Servidor Web" {
+    component "Aplicación Web" {
+        component "Sistema de Alertas" {
+            [Gestionar Alertas]
+            [Enviar Notificaciones]
+        }
+        component "Módulo de Subida de Archivos" {
+            [Subir Archivos]
+            [Gestionar Prioridades y Etiquetas]
+        }
+    }
+    
+    database "Base de Datos" {
+        [Archivos]
+        [Etiquetas]
+        [Configuración de Alertas]
+        [Historial de Sesiones]
+    }
+}
+
+node "Servidor de Correo" {
+    [Correo Electrónico]
+}
+
+node "Cliente" {
+    [Navegador Web]
+}
+
+"Cliente" --> "Aplicación Web" : Acceso a la Página
+"Aplicación Web" --> "Base de Datos" : Leer/Escribir (Archivos, Etiquetas, Configuración de Alertas)
+"Aplicación Web" --> "Servidor de Correo" : Enviar Notificaciones
+
+note right of "Aplicación Web"
+    - Alertas al ingresar a la página
+    - Alertas de tiempo de respuesta de archivos
+    - Notificaciones por correo al iniciar sesión
+end note
+
+@enduml
