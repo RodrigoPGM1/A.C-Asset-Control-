@@ -1,0 +1,84 @@
+@startuml
+' Definición de la clase GestorDeArchivos
+class GestorDeArchivos {
+    - archivos: List<Archivo>
+    - directorios: List<Directorio>
+    - usuarios: List<Usuario>
+    + GestorDeArchivos()
+    + agregarArchivo(archivo: Archivo): void
+    + eliminarArchivo(archivo: Archivo): void
+    + obtenerArchivo(nombre: String): Archivo
+    + listarArchivos(): List<Archivo>
+    + agregarDirectorio(directorio: Directorio): void
+    + eliminarDirectorio(directorio: Directorio): void
+    + listarDirectorios(): List<Directorio>
+    + agregarUsuario(usuario: Usuario): void
+    + eliminarUsuario(usuario: Usuario): void
+    + obtenerUsuario(nombre: String): Usuario
+}
+
+' Definición de la clase Archivo
+class Archivo {
+    - nombre: String
+    - tamaño: long
+    - tipo: String
+    - contenido: byte[]
+    + Archivo(nombre: String, tamaño: long, tipo: String)
+    + obtenerNombre(): String
+    + obtenerTamaño(): long
+    + obtenerTipo(): String
+    + obtenerContenido(): byte[]
+    + establecerContenido(contenido: byte[]): void
+}
+
+' Definición de la clase Directorio
+class Directorio {
+    - nombre: String
+    - archivos: List<Archivo>
+    - subDirectorios: List<Directorio>
+    + Directorio(nombre: String)
+    + obtenerNombre(): String
+    + agregarArchivo(archivo: Archivo): void
+    + eliminarArchivo(archivo: Archivo): void
+    + agregarDirectorio(directorio: Directorio): void
+    + eliminarDirectorio(directorio: Directorio): void
+    + listarArchivos(): List<Archivo>
+    + listarSubDirectorios(): List<Directorio>
+}
+
+' Definición de la clase Usuario
+class Usuario {
+    - nombre: String
+    - rol: Rol
+    + Usuario(nombre: String, rol: Rol)
+    + obtenerNombre(): String
+    + obtenerRol(): Rol
+}
+
+' Definición de la clase Rol
+class Rol {
+    - nombre: String
+    - permisos: List<Permiso>
+    + Rol(nombre: String)
+    + obtenerNombre(): String
+    + agregarPermiso(permiso: Permiso): void
+    + eliminarPermiso(permiso: Permiso): void
+}
+
+' Definición de la clase Permiso
+class Permiso {
+    - nombre: String
+    + Permiso(nombre: String)
+    + obtenerNombre(): String
+}
+
+' Relaciones entre clases
+GestorDeArchivos "1" *-- "0..*" Archivo : gestiona >
+GestorDeArchivos "1" *-- "0..*" Directorio : gestiona >
+GestorDeArchivos "1" *-- "0..*" Usuario : gestiona >
+Directorio "1" *-- "0..*" Archivo : contiene >
+Directorio "1" *-- "0..*" Directorio : contiene >
+Usuario "1" -- "1" Rol : tiene >
+Rol "1" *-- "0..*" Permiso : asigna >
+
+@enduml
