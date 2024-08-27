@@ -1,0 +1,29 @@
+@startuml
+|Usuario|
+start
+:Iniciar sesión;
+:Recibir notificación por correo;
+
+|Sistema|
+:Mostrar página de subida de archivos;
+:Seleccionar archivo;
+:Subir archivo;
+
+if (¿Archivo tiene etiquetas?) then (sí)
+  :Añadir etiquetas al archivo;
+endif
+
+if (¿Establecer prioridad?) then (sí)
+  :Establecer prioridad del archivo;
+endif
+
+:Guardar archivo en base de datos;
+
+|Sistema|
+:Verificar tiempo de respuesta del archivo;
+if (¿Tiempo de respuesta excedido?) then (sí)
+  :Mostrar alerta;
+endif
+
+stop
+@enduml
