@@ -7,21 +7,26 @@
     font-family: 'poppins','poppins-bold';
     color: #fff; 
 }
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #25252b;
+    background: url('images/fondologin.jpg') no-repeat center center/cover; /* Mover la imagen de fondo aquí */
+    background-size: cover; /* Asegurar que la imagen cubra toda la pantalla */
 }
-.conteiner{
+
+.conteiner {
     position: relative;
     width: 750px;
     height: 450px;
     border: 2px solid #ff2770;
-    box-shadow:0 0 25px #ff2770;
+    box-shadow: 0 0 25px #ff2770;
     overflow: hidden;
+    z-index: 10; /* Asegura que el formulario esté en una capa superior */
+    background: rgba(0, 0, 0, 0.8); /* Agrega un fondo semi-transparente para el formulario */
 }
+
 .conteiner .form-box{
     position: absolute;
     top: 0;
