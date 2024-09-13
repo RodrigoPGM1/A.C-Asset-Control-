@@ -1,0 +1,13 @@
+{
+  "name": "pagina-ac",
+  "version": "1.0.0",
+  "main": "login.js",
+  "scripts": {
+    "start": "nod src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
