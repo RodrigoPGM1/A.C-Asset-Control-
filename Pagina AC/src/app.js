@@ -12,18 +12,19 @@ app.set('port', 4000);
 app.set('views', __dirname + '/views');
 
 // Configura Handlebars con el layout principal
-app.engine('.hbs', engine({
-    extname: '.hbs',
-    layoutsDir: __dirname + '/views/Layout', // Ruta de la carpeta de layouts
+app.engine('.html', engine({
+    extname: '.html',
+    layoutsDir: __dirname + '/views/layout', // Ruta de la carpeta de layouts
 }));
 
-app.set('view engine', 'hbs');
+app.set('view engine', 'html');
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 app.use(myconnection(mysql, {
     host: 'localhost',
@@ -41,6 +42,6 @@ app.listen(app.get('port'), () => {
 
 // Ruta principal que renderiza la vista 'home'
 app.get('/', (req, res) => {
-    res.render('home'); 
+    res.render('login'); 
 });
 
