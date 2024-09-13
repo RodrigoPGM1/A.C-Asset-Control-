@@ -1,0 +1,12 @@
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    margin-top: 100px;
+}
+.form-control {
+    border-radius: 0;
+}
+.btn {
+    border-radius: 0;
+}
