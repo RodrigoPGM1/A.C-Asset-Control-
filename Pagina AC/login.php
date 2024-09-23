@@ -10,29 +10,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Control Patrimonial</title>
 </head>
+
 <body>
     <div class="conteiner">
         <div class="curved-shape"></div>
         <div class="curved-shape2"></div>
         <div class="form-box Login">
             <h2 class="animacion" style="--D:0; --S:21">Iniciar Sesion</h2>
-            <form action="/" method="POST">
+
+            <?php
+            include("Controllers/Conexion.php");
+            include("Controllers/controller.php");
+            ?> 
+
+            <form action="" method="POST">
                 <div class="input-box animacion" style="--D:1; --S:22" >
-                    <input type="text" id="username" required>
+                    <input type="text" name="username" id="username" >
                     <label for="">Nombre</label>
                     <i class='bx bx-user'></i>
                 </div>
                 <div class="input-box animacion"style="--D:2; --S:23">
-                    <input type="password"  id="password" required>
+                    <input type="password" name="password" id="password" >
                     <label for="">Password</label>
                     <i class='bx bx-lock-alt'></i>
                 </div>
                 <div class="input-box animacion" style="--D:3; --S:24">
-                    <button type="submit" class="btn">Login</button>
+                    <button type="submit" class="btn" name="ingresar">Login</button>
                 </div>
                 <div class="regi-link animacion" style="--D:4; --S:25">
                     <p>¿No tienes cuenta? <a href="#" class="registrarse">Registrate aqui</a></p>
                 </div>
+        
             </form>
         </div>
         <div class="info-content Login">
@@ -41,24 +49,24 @@
         </div>
         <div class="form-box Registrate">
             <h2 class="animacion" style="--li:17; --S:0">Registrarse</h2>
-            <form action="/" method="POST" >
+            <form action="" method="POST" >
                 <div class="input-box animacion" style="--li:18; --S:1">
-                    <input type="text" name="name" id="nombre" required>
+                    <input type="text" name="name" id="nombre" >
                     <label for="">Nombre</label>
                     <i class='bx bx-id-card' ></i>
                 </div>
                 <div class="input-box animacion" style="--li:19; --S:2">
-                    <input type="email" name="email" id="correo" required>
+                    <input type="email" name="correo" id="correo" >
                     <label for="">Email</label>
                     <i class='bx bx-envelope' ></i>
                 </div>
                 <div class="input-box animacion" style="--li:19; --S:2">
-                    <input type="password" name="password" id="clave" required>
+                    <input type="password" name="clave"  id="clave" >
                     <label for="">Contraseña</label>
                     <i class='bx bx-lock-alt'></i>
                 </div>
                 <div class="input-box animacion" style="--li:20; --S:3">
-                    <button type="submit" class="btn">Registrate</button>
+                    <button type="submit" class="btn" name="Registrarse">Registrate</button>
                 </div>
                 <div class="regi-link animacion" style="--li:21; --S:4">
                     <p>¿Ya tienes cuenta ? <a href="#" class="Iniciarlink">Iniciar Sesion</a></p>
@@ -71,6 +79,6 @@
         </div>
     </div>
     <script src="scripts/scriptstyle.js"></script>
-
+    
 </body>
 </html>
