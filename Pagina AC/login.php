@@ -19,18 +19,43 @@
             <h2 class="animacion" style="--D:0; --S:21">Iniciar Sesion</h2>
 
             <?php
+            session_start(); // Iniciar sesión al principio del archivo
+
             include("Controllers/Conexion.php");
-            include("Controllers/controller.php");
+            include("Controllers/controller.php"); 
+
+            // Verificar si el formulario de inicio de sesión fue enviado
+            if (isset($_POST['ingresar'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+
+                // Preparar la consulta para verificar las credenciales
+                $stmt = $conexion->prepare("SELECT * FROM usuario WHERE nombre = ? AND contraseña = ?");
+                $stmt->bind_param("ss", $username, $password);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows > 0) {
+                    // Almacenar el nombre de usuario en la sesión
+                    $_SESSION['username'] = $username; 
+                    header("Location: paginaweb/index.html");// Redirigir a index.html
+                    exit(); // Terminar el script para evitar que se ejecute el resto del código
+                } else {
+                    echo "<p style='color:red;'>Usuario o contraseña incorrectos.</p>"; // Mensaje de error
+                }
+
+                $stmt->close(); // Cerrar la sentencia
+            }
             ?> 
 
             <form action="" method="POST">
-                <div class="input-box animacion" style="--D:1; --S:22" >
-                    <input type="text" name="username" id="username" >
+                <div class="input-box animacion" style="--D:1; --S:22">
+                    <input type="text" name="username" id="username" required>
                     <label for="">Nombre</label>
                     <i class='bx bx-user'></i>
                 </div>
-                <div class="input-box animacion"style="--D:2; --S:23">
-                    <input type="password" name="password" id="password" >
+                <div class="input-box animacion" style="--D:2; --S:23">
+                    <input type="password" name="password" id="password" required>
                     <label for="">Password</label>
                     <i class='bx bx-lock-alt'></i>
                 </div>
@@ -40,7 +65,6 @@
                 <div class="regi-link animacion" style="--D:4; --S:25">
                     <p>¿No tienes cuenta? <a href="#" class="registrarse">Registrate aqui</a></p>
                 </div>
-        
             </form>
         </div>
         <div class="info-content Login">
@@ -49,19 +73,19 @@
         </div>
         <div class="form-box Registrate">
             <h2 class="animacion" style="--li:17; --S:0">Registrarse</h2>
-            <form action="" method="POST" >
+            <form action="" method="POST">
                 <div class="input-box animacion" style="--li:18; --S:1">
-                    <input type="text" name="name" id="nombre" >
+                    <input type="text" name="name" id="nombre" required>
                     <label for="">Nombre</label>
-                    <i class='bx bx-id-card' ></i>
+                    <i class='bx bx-id-card'></i>
                 </div>
                 <div class="input-box animacion" style="--li:19; --S:2">
-                    <input type="email" name="correo" id="correo" >
+                    <input type="email" name="correo" id="correo" required>
                     <label for="">Email</label>
-                    <i class='bx bx-envelope' ></i>
+                    <i class='bx bx-envelope'></i>
                 </div>
                 <div class="input-box animacion" style="--li:19; --S:2">
-                    <input type="password" name="clave"  id="clave" >
+                    <input type="password" name="clave" id="clave" required>
                     <label for="">Contraseña</label>
                     <i class='bx bx-lock-alt'></i>
                 </div>
@@ -69,7 +93,7 @@
                     <button type="submit" class="btn" name="Registrarse">Registrate</button>
                 </div>
                 <div class="regi-link animacion" style="--li:21; --S:4">
-                    <p>¿Ya tienes cuenta ? <a href="#" class="Iniciarlink">Iniciar Sesion</a></p>
+                    <p>¿Ya tienes cuenta? <a href="#" class="Iniciarlink">Iniciar Sesion</a></p>
                 </div>
             </form>
         </div>
@@ -79,6 +103,6 @@
         </div>
     </div>
     <script src="scripts/scriptstyle.js"></script>
-    
 </body>
 </html>
+
