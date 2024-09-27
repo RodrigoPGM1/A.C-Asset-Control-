@@ -89,6 +89,7 @@ body {
     margin-bottom: 15px;
 }
 
+
 .header-txt span {
     font-size: 25px;
 
@@ -342,6 +343,7 @@ textarea {
     padding: 10px;
     background-color: #070707;
 }
+
 
 @media(max-width:991px) {
     .menu{
