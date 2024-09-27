@@ -1,5 +1,5 @@
-@import url();
-@import url();
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 /* font-family: 'Bebas Neue', cursive; */
 
@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-    background-image: url(images/images/bg.jpg);
+    background-image: url(images/bg.jpg);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -93,6 +93,7 @@ body {
     font-size: 25px;
 
 }
+x
 
 .header-txt p {
     color: #afafaf;
@@ -139,7 +140,7 @@ body {
 }
 
 .welcome-1{
-    background-image: url(images/images/a1.jpg);
+    background-image: url(images/a1.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -253,16 +254,16 @@ td {
 }
 
 .prices-2 {
-    background-image: url(images/images/a2.jpg);
+    background-image: url(images/a2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 50%;
 }
 
- .personal {
+.personal {
     padding: 100px 0;
-    text-aling: center;
+    text-align: center;
 }
 
 .personal-txt {
@@ -273,9 +274,9 @@ td {
     margin-bottom: 25px;
 }
 
-.personal-growp {
+.personal-group {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin-bottom: 35px;
 }
 
@@ -287,22 +288,22 @@ td {
     width: 250px;
     border-radius: 15px;
     margin-bottom: 25px;
-} 
+}
 
 .personal-1 h3 {
     font-size: 22px;
 }
 
 .personal-1 p {
-    padding: 0 50px;    
+    padding: 0 50px;
 }
 
-.personal a {
-    color: #cf2d3a;    
+.personal-1 a {
+    color: #cf2d3a;
 }
 
 .footer-bg {
-    background-image: url(images/images/b2.jpg);  
+    background-image: url(images/b2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -310,21 +311,21 @@ td {
     padding: 100px 0;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.campo-1{
+.campo-1 {
     margin-bottom: 15px;
 }
 
 .campo {
     margin: 5px;
-    padding: 20px 15px;
+    padding: 28px 15px;
     width: 250px;
-    background-color: #0e0e0e0e;
+    background-color: #0e0e0e;
     border: 1px solid #cf2d3a;
     outline: none;
     border-radius: 10px;
@@ -333,5 +334,146 @@ form{
 }
 
 textarea {
-    width: 520px : important;
+    width: 520px !important;
+}
+
+.footer-txt {
+    text-align: center;
+    padding: 10px;
+    background-color: #070707;
+}
+
+@media(max-width:991px) {
+    .menu{
+        padding: 20px;
+    }
+
+    .menu label {
+        display: initial;
+    }
+
+    .menu .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #1f1f1f;
+        display: none;
+    }
+
+    .menu .navbar ul li {  
+        width: 100%;
+    } 
+
+    #menu:checked ~ .navbar {
+        display: initial;
+    }
+    
+    .header {
+        min-height: 0vh;
+    }
+
+    .header-content {
+        padding: 80px 30px 50px 30px;
+    }
+
+    .header-txt {
+        margin-bottom: 15px;
+    }
+
+    .header-txt h1 {
+        font-size: 90px;
+    }
+
+    .header-txt p {
+        padding: 0;
+        margin: 15px 0;
+    }
+
+        .header-dir {
+            flex-direction: column;
+        }
+    .dir p {
+        font-size: 18px;
+
+    }
+    .welcome {
+        flex-direction:  column;
+    }
+
+    .welcome-1 {
+        display: none;
+    }
+    .welcome-2 {
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 70px;
+        line-height: 80px;
+    }
+
+    p {
+        margin: 15px 0;
+    }
+
+    .services {
+        padding: 30px;
+    }
+
+    .services-txt p {
+        padding: 0;
+    }
+
+    .services-group {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .services-1 {
+        margin: 0 0 20px 0;
+    }
+
+    .prices {
+        flex-direction: column;
+    }
+
+    .prices-1 {
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    table {
+        margin: 25px 0 0 0;
+    }
+
+    .prices-2 {
+        display: none;
+    }
+
+    .personal {
+        padding: 30px;
+    }
+
+    .personal-group {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .personal-1 {
+        margin-bottom: 25px;
+    }
+
+    .footer-bg {
+        padding: 30px;
+    }
+
+    textarea {
+        width: 250px !important;
+    }
+
+
 }
