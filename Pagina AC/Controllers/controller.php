@@ -1,6 +1,8 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("Controllers/Conexion.php"); // Asegúrate de incluir tu conexión aquí
+    
+    
 
     if (isset($_POST["ingresar"])) {
         // Validar campos
