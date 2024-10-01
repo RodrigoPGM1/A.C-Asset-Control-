@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, content=device-width, initial-scale=1.0">
+    <title>Subir Archivos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sube tus Archivos</h1>
+        <form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="fileToUpload[]" id="fileToUpload" multiple required>
+        </form>
+        <div id="message" class="message"></div>
+
+        <table id="fileTable">
+            <thead>
+                <tr>
+                    <th>Nombre del Archivo</th>
+                    <th>Previsualizar</th>
+                </tr>
+            </thead>
+            <tbody id="fileTableBody">
+                <!-- Aquí se agregarán las filas de los archivos -->
+            </tbody>
+        </table>
+
+        <input type="submit" value="Subir archivo" name="submit" id="submitButton" style="display: none;">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#fileToUpload").on("change", function() {
+                // Mostrar el botón de subir archivos cuando se seleccionan archivos
+                $("#submitButton").show();
+                
+                // Agregar los nombres de los archivos a la tabla
+                const files = $(this).prop('files');
+                let rows = '';
+                for (let i = 0; i < files.length; i++) {
+                    const fileName = files[i].name;
+                    rows += `<tr>
+                                <td>${fileName}</td>
+                                <td><button onclick="previewFile('${URL.createObjectURL(files[i])}')">Previsualizar</button></td>
+                             </tr>`;
+                }
+                $("#fileTableBody").html(rows);
+            });
+
+            // Función para enviar el formulario al hacer clic en el botón "Subir archivo"
+            $("#submitButton").on("click", function(event) {
+                event.preventDefault(); // Prevenir el envío normal del formulario
+                let formData = new FormData($("#uploadForm")[0]);
+
+                $.ajax({
+                    type: "POST",
+                    url: "upload.php", // URL del archivo PHP
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        let response = JSON.parse(data);
+                        $("#message").html(response.message);
+
+                        // Llenar la tabla con los archivos subidos
+                        $("#fileTableBody").html(response.table);
+                    },
+                    error: function() {
+                        $("#message").html("<div class='message'>Error en la carga del archivo.</div>");
+                    }
+                });
+            });
+        });
+
+        // Función para mostrar la previsualización del archivo
+        function previewFile(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

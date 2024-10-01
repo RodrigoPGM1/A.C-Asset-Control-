@@ -1,0 +1,85 @@
+/* Estilos básicos */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(207, 45, 58, 0.9); /* Color #cf2d3a con opacidad */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    color: #fff; /* Texto blanco */
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #cf2d3a; /* Color #cf2d3a */
+    color: #fff; /* Texto blanco */
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #cf2d3a; /* Color #cf2d3a */
+    color: #fff; /* Texto blanco */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #a6232b; /* Un tono más oscuro de #cf2d3a al pasar el mouse */
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff; /* Texto blanco */
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    color: #fff; /* Texto blanco */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #fff;
+    text-align: left;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #cf2d3a; /* Color #cf2d3a */
+    color: #fff; /* Texto blanco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a6232b; /* Un tono más oscuro de #cf2d3a al pasar el mouse */
+}
