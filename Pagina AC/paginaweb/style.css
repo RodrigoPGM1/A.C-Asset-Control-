@@ -333,8 +333,21 @@ td {
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    padding: 100px 0;
+    padding: 50px 0;
 }
+.image-container {
+    display: flex; /* Utiliza flexbox para alinear las imágenes en línea */
+    justify-content: center; /* Centra las imágenes */
+    margin-top: 10px; /* Espacio superior */
+}
+
+
+.footer-image {
+    max-width: 40%; /* Ajusta este valor para cambiar el tamaño */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 0 5px; /* Espacio entre las imágenes */
+}
+
 
 form {
     display: flex;
