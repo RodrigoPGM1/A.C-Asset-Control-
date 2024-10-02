@@ -380,6 +380,27 @@ textarea {
     padding: 10px;
     background-color: #070707;
 }
+.footer-txt h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.equipo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Para centrar la lista */
+    padding: 0;
+}
+
+.equipo-list li {
+    font-size: 16px;
+    color: #afafaf;
+    flex: 1 1 calc(50% - 20px); /* Cada elemento ocupará el 50% menos el margen */
+    margin: 10px;
+    text-align: center; /* Centrar el texto de cada elemento */
+}
+
 
 
 @media(max-width:991px) {
@@ -513,6 +534,7 @@ textarea {
     textarea {
         width: 250px !important;
     }
+    
 
 
 }

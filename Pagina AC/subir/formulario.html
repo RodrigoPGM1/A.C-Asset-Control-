@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de Documentos Recibidos</title>
+</head>
+<body>
+    <h1>Ingresa tus documentos recibidos</h1>
+    <form action="guardar.php" method="POST">
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" name="numero" required><br><br>
+
+        <label for="oficina">Oficina:</label>
+        <input type="text" id="oficina" name="oficina" required><br><br>
+
+        <label for="documento">Documento:</label>
+        <input type="text" id="documento" name="documento" required><br><br>
+
+        <label for="expediente">Expediente:</label>
+        <input type="text" id="expediente" name="expediente" required><br><br>
+
+        <label for="firma">Firma:</label>
+        <input type="text" id="firma" name="firma" required><br><br>
+
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" required><br><br>
+
+        <label for="oficio">Oficio:</label>
+        <input type="text" id="oficio" name="oficio" required><br><br>
+
+        <label for="asunto">Asunto:</label>
+        <textarea id="asunto" name="asunto" required></textarea><br><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="datetime-local" id="fecha" name="fecha" required><br><br>
+
+        <input type="hidden" name="id" value="0"> <!-- Campo ID oculto -->
+        
+        <input type="submit" value="Guardar Documento">
+    </form>
+</body>
+</html>
