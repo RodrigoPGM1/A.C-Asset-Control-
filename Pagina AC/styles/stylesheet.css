@@ -20,8 +20,8 @@ body {
     position: relative;
     width: 750px;
     height: 450px;
-    border: 2px solid #ff2770;
-    box-shadow: 0 0 25px #ff2770;
+    border: 2px solid #cf2d3a;
+    box-shadow: 0 0 25px #cf2d3a;
     overflow: hidden;
     z-index: 10; /* Asegura que el formulario esté en una capa superior */
     background: rgba(0, 0, 0, 0.8); /* Agrega un fondo semi-transparente para el formulario */
@@ -97,7 +97,7 @@ body {
 }
 .input-box input:focus,
 .input-box input:valid{
-    border-bottom: 2px solid #ff2770;
+    border-bottom: 2px solid #cf2d3a;
 }
 .input-box label{
     position: absolute;
@@ -112,7 +112,7 @@ body {
 .input-box input:focus ~ label,
 .input-box input:valid ~ label{
     top: -5px;
-    color: #ff2770;
+    color: #cf2d3a;
 }
 .input-box i{
     position:absolute ;
@@ -124,7 +124,7 @@ body {
 }
 .input-box input:focus ~ i,
 .input-box input:valid ~ i{
-    color:#ff2770;
+    color:#cf2d3a;
 }
 .btn{
     position: relative;
@@ -135,7 +135,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    border: 2px solid #ff2770;
+    border: 2px solid #cf2d3a;
     overflow: hidden;
     z-index: 1;
 }
@@ -144,7 +144,7 @@ body {
     position: absolute;
     height: 300%;
     width: 100%;
-    background: linear-gradient(#25252b,#ff2770,#25252b,#ff2770);
+    background: linear-gradient(#25252b,#cf2d3a,#25252b,#cf2d3a);
     top: -100%;
     left: 0;
     z-index: -1;
@@ -160,7 +160,7 @@ body {
 }
 .regi-link a{
     text-decoration: none;
-    color: #ff2770;
+    color: #cf2d3a;
     font-weight: 600;
 
 }
@@ -233,7 +233,7 @@ body {
     top: -5px;
     height: 600px;
     width: 850px;
-    background: linear-gradient(45deg, #25252b,#ff2770);
+    background: linear-gradient(45deg, #25252b,#cf2d3a);
     /**transform: rotate(10deg) skewY(40deg)*/
     transform: rotate(10deg) skewY(40deg);
     transform-origin: bottom right;
@@ -251,7 +251,7 @@ body {
     height: 700px;
     width: 850px;
     background: #25252b;
-    border-top: 3px solid #ff2770;
+    border-top: 3px solid #cf2d3a;
     transform: rotate(0deg) skewY(0deg);
     transform-origin: bottom left;
     transition: 1.5s ease;
