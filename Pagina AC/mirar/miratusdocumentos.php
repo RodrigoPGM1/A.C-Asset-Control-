@@ -32,7 +32,7 @@ $result = $conexion->query($sql);
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/mirar/mira_tus_documentos.php">Mira tus documentos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/mirar/miratusdocumentos.php">Mira tus documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Pendientes</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Emitidos</a></li>
