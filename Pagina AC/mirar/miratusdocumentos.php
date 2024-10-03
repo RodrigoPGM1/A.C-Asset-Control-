@@ -1,3 +1,14 @@
+<?php
+// Incluir el archivo de conexión
+include '../Controllers/Conexion.php';
+
+// Consulta para obtener los datos de la tabla "recibidos"
+$sql = "SELECT numero, oficina, documento, expediente, firma, cargo, oficio, asunto, fecha FROM recibidos";
+$result = $conexion->query($sql);
+
+// Iniciar la salida HTML
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +32,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/mirar/mirar.html">Mira tus documentos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/mirar/mira_tus_documentos.php">Mira tus documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Pendientes</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Emitidos</a></li>
@@ -32,7 +43,7 @@
     </header>
     
     <div class="container mt-4">
-        <h2 class="text-center">Lista de Documentos</h2>
+        <h2 class="text-center">Lista de Documentos Recibidos</h2>
         <input type="text" id="searchInput" class="form-control mb-3" placeholder="Buscar en la tabla...">
         
         <table class="table table-bordered table-striped">
@@ -50,30 +61,30 @@
                 </tr>
             </thead>
             <tbody id="documentTable">
-                <!-- Aquí puedes agregar filas de datos -->
-                <tr>
-                    <td>001</td>
-                    <td>Oficina A</td>
-                    <td>Documento 1</td>
-                    <td>Expediente 1</td>
-                    <td>Firma 1</td>
-                    <td>Cargo 1</td>
-                    <td>Oficio 1</td>
-                    <td>Asunto 1</td>
-                    <td>2024-10-03</td>
-                </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Oficina B</td>
-                    <td>Documento 2</td>
-                    <td>Expediente 2</td>
-                    <td>Firma 2</td>
-                    <td>Cargo 2</td>
-                    <td>Oficio 2</td>
-                    <td>Asunto 2</td>
-                    <td>2024-10-04</td>
-                </tr>
-                <!-- Más filas según sea necesario -->
+                <?php
+                // Verifica si hay resultados
+                if ($result->num_rows > 0) {
+                    // Mostrar datos de cada fila
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tr>';
+                        echo '<td>' . htmlspecialchars($row['numero']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['oficina']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['documento']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['expediente']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['firma']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['cargo']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['oficio']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['asunto']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['fecha']) . '</td>';
+                        echo '</tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="9" class="text-center">No hay registros disponibles.</td></tr>';
+                }
+
+                // Cerrar la conexión
+                $conexion->close();
+                ?>
             </tbody>
         </table>
     </div>
@@ -97,4 +108,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
