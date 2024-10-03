@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mira tus Documentos</title>
+    <title>Mira tus documentos</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Color de fondo para contraste */
+        }
+    </style>
 </head>
 <body>
 
@@ -11,28 +18,83 @@
         <div class="container">
             <div class="menu">
                 <div class="logo">Control Patrimonial</div>
-                <nav class="navbar">
-                    <ul>
-                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a></li>
-                        <li><a href="#">Mira tus documentos</a></li>
-                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
-                        <li><a href="#">Pendientes</a></li>
-                        <li><a href="#">Emitidos</a></li>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/mirar/mirar.html">Mira tus documentos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pendientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Emitidos</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-
-    <!-- Fin del header -->
-
-    <div class="documentos-recibidos" style="text-align: center; color: red; font-size: 24px;">
-        Aquí podrás visualizar los documentos recibidos.
+    
+    <div class="container mt-4">
+        <h2 class="text-center">Lista de Documentos</h2>
+        <input type="text" id="searchInput" class="form-control mb-3" placeholder="Buscar en la tabla...">
+        
+        <table class="table table-bordered table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Número</th>
+                    <th>Oficina</th>
+                    <th>Documento</th>
+                    <th>Expediente</th>
+                    <th>Firma</th>
+                    <th>Cargo</th>
+                    <th>Oficio</th>
+                    <th>Asunto</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="documentTable">
+                <!-- Aquí puedes agregar filas de datos -->
+                <tr>
+                    <td>001</td>
+                    <td>Oficina A</td>
+                    <td>Documento 1</td>
+                    <td>Expediente 1</td>
+                    <td>Firma 1</td>
+                    <td>Cargo 1</td>
+                    <td>Oficio 1</td>
+                    <td>Asunto 1</td>
+                    <td>2024-10-03</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Oficina B</td>
+                    <td>Documento 2</td>
+                    <td>Expediente 2</td>
+                    <td>Firma 2</td>
+                    <td>Cargo 2</td>
+                    <td>Oficio 2</td>
+                    <td>Asunto 2</td>
+                    <td>2024-10-04</td>
+                </tr>
+                <!-- Más filas según sea necesario -->
+            </tbody>
+        </table>
     </div>
 
-    <div class="content">
-        <!-- Aquí se podrá agregar el contenido para mostrar los documentos -->
-    </div>
+    <script>
+        // Función de búsqueda en la tabla
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#documentTable tr');
 
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+    </script>
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
