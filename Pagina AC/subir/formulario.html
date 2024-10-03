@@ -4,40 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso de Documentos Recibidos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css"> <!-- Enlace a tu CSS -->
+    <script>
+        // Función para limpiar los campos del formulario
+        function limpiarFormulario() {
+            document.getElementById("numero").value = "";
+            document.getElementById("oficina").value = "";
+            document.getElementById("documento").value = "";
+            document.getElementById("expediente").value = "";
+            document.getElementById("firma").value = "";
+            document.getElementById("cargo").value = "";
+            document.getElementById("oficio").value = "";
+            document.getElementById("asunto").value = "";
+            document.getElementById("fecha").value = "";
+        }
+    </script>
 </head>
 <body>
-    <h1>Ingresa tus documentos recibidos</h1>
+
+    <header class="header">
+        <div class="container">
+            <div class="menu">
+                <div class="logo">Control Patrimonial</div>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a></li>
+                        <li><a href="#">Mira tus documentos</a></li>
+                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
+                        <li><a href="#">Pendientes</a></li>
+                        <li><a href="#">Emitidos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Fin del header -->
+
+    <div class="documentos-recibidos">Ingresa tus documentos recibidos</div>
+
+    <!-- Sección del formulario para ingresar documentos recibidos -->
     <form action="guardar.php" method="POST">
-        <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" required><br><br>
+        <div class="form-group">
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" required>
+        </div>
 
-        <label for="oficina">Oficina:</label>
-        <input type="text" id="oficina" name="oficina" required><br><br>
+        <div class="form-group">
+            <label for="oficina">Oficina:</label>
+            <input type="text" id="oficina" name="oficina" required>
+        </div>
 
-        <label for="documento">Documento:</label>
-        <input type="text" id="documento" name="documento" required><br><br>
+        <div class="form-group">
+            <label for="documento">Documento:</label>
+            <input type="text" id="documento" name="documento" required>
+        </div>
 
-        <label for="expediente">Expediente:</label>
-        <input type="text" id="expediente" name="expediente" required><br><br>
+        <div class="form-group">
+            <label for="expediente">Expediente:</label>
+            <input type="text" id="expediente" name="expediente" required>
+        </div>
 
-        <label for="firma">Firma:</label>
-        <input type="text" id="firma" name="firma" required><br><br>
+        <div class="form-group">
+            <label for="firma">Firma:</label>
+            <input type="text" id="firma" name="firma" required>
+        </div>
 
-        <label for="cargo">Cargo:</label>
-        <input type="text" id="cargo" name="cargo" required><br><br>
+        <div class="form-group">
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required>
+        </div>
 
-        <label for="oficio">Oficio:</label>
-        <input type="text" id="oficio" name="oficio" required><br><br>
+        <div class="form-group">
+            <label for="oficio">Oficio:</label>
+            <input type="text" id="oficio" name="oficio" required>
+        </div>
 
-        <label for="asunto">Asunto:</label>
-        <textarea id="asunto" name="asunto" required></textarea><br><br>
+        <div class="form-group">
+            <label for="asunto">Asunto:</label>
+            <textarea id="asunto" name="asunto" required></textarea>
+        </div>
 
-        <label for="fecha">Fecha:</label>
-        <input type="datetime-local" id="fecha" name="fecha" required><br><br>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="datetime-local" id="fecha" name="fecha" required>
+        </div>
 
         <input type="hidden" name="id" value="0"> <!-- Campo ID oculto -->
-        
+
+        <!-- Botones de Guardar y Limpiar -->
+        <div class="button-container">
         <input type="submit" value="Guardar Documento">
+        <input type="button" value="Limpiar" onclick="limpiarFormulario()">
     </form>
 </body>
 </html>
