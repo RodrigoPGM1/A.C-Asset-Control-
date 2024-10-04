@@ -2,8 +2,8 @@
 // Incluir el archivo de conexión
 include '../Controllers/Conexion.php';
 
-// Consulta para obtener los datos de la tabla "recibidos"
-$sql = "SELECT id, numero, oficina, documento, expediente, firma, cargo, oficio, asunto, fecha FROM recibidos";
+// Consulta para obtener los datos de la tabla "emitidos"
+$sql = "SELECT id, numero, oficina, firma, asunto, adjunto, fecha FROM emitidos";
 $result = $conexion->query($sql);
 
 // Iniciar la salida HTML
@@ -14,7 +14,7 @@ $result = $conexion->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mira tus documentos</title>
+    <title>Mira tus documentos emitidos</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilo para el botón de eliminar */
@@ -44,7 +44,7 @@ $result = $conexion->query($sql);
                         <li><a href="/A.C-Asset-Control-/Pagina%20AC/mirar/miratusdocumentos.php">Mira tus documentos</a></li>
                         <li><a href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
                         <li><a href="#">Pendientes</a></li>
-                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/mirar/miraremitidos.php">Emitidos</a></li>
+                        <li><a href="#">Emitidos</a></li>
                     </ul>
                 </nav>
             </div>
@@ -52,7 +52,7 @@ $result = $conexion->query($sql);
     </header>
     
     <div class="container mt-4">
-        <h2 class="text-center">Lista de Documentos Recibidos</h2>
+        <h2 class="text-center">Lista de Documentos Emitidos</h2>
         <input type="text" id="searchInput" placeholder="Buscar en la tabla...">
         
         <table class="table">
@@ -60,12 +60,9 @@ $result = $conexion->query($sql);
                 <tr>
                     <th>Número</th>
                     <th>Oficina</th>
-                    <th>Documento</th>
-                    <th>Expediente</th>
                     <th>Firma</th>
-                    <th>Cargo</th>
-                    <th>Oficio</th>
                     <th>Asunto</th>
+                    <th>Adjunto</th>
                     <th>Fecha</th>
                     <th>Acción</th> <!-- Nueva columna para el botón de eliminar -->
                 </tr>
@@ -79,18 +76,15 @@ $result = $conexion->query($sql);
                         echo '<tr>';
                         echo '<td>' . htmlspecialchars($row['numero']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['oficina']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['documento']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['expediente']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['firma']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['cargo']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['oficio']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['asunto']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['adjunto']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['fecha']) . '</td>';
-                        echo '<td><form action="borrar.php" method="POST"><input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '"><button type="submit" class="btn-eliminar">Eliminar</button></form></td>'; // Botón para eliminar
+                        echo '<td><form action="delete_document.php" method="POST"><input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '"><button type="submit" class="btn-eliminar">Eliminar</button></form></td>'; // Botón para eliminar
                         echo '</tr>';
                     }
                 } else {
-                    echo '<tr><td colspan="10" class="text-center">No hay registros disponibles.</td></tr>';
+                    echo '<tr><td colspan="7" class="text-center">No hay registros disponibles.</td></tr>';
                 }
 
                 // Cerrar la conexión

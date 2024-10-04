@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600;700;800&display=swap'); 
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('images/fondoestrellas.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+    color: #000000; /* Texto negro */
+    position: relative; /* Para que los elementos hijos se posicionen en relación al body */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra alrededor del contenedor */
+}
+
+.header {
+    padding: 20px 0; /* Espaciado superior e inferior */
+    position: relative; /* Para el posicionamiento de elementos */
+    z-index: 1; /* Asegúrate de que el header esté encima del fondo */
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between; /* Espacio entre logo y navegación */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.logo {
+    font-size: 24px; /* Tamaño del texto del logo */
+    color: #cf2d3a; /* Color del texto del logo */
+    font-weight: 800; /* Grosor de la fuente */
+}
+
+.navbar ul {
+    display: flex; /* Alínea los elementos en fila */
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Espaciado entre los elementos del menú */
+}
+
+.navbar ul li a {
+    font-size: 18px; /* Tamaño de la fuente */
+    color: rgb(255, 255, 255); /* Color blanco con transparencia */
+    padding: 10px 15px; /* Espaciado interno */
+    transition: color 0.3s; /* Transición suave para el hover */
+}
+
+.navbar ul li a:hover {
+    color: #cf2d3a; /* Color de los enlaces al pasar el mouse */
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0; /* Espaciado superior e inferior */
+    font-size: 28px; /* Tamaño de fuente para el título */
+    color: #cf2d3a; /* Color de los títulos */
+}
+
+.table {
+    width: 100%; /* Ancho total de la tabla */
+    border-collapse: collapse; /* Eliminar espacios entre celdas */
+    margin-top: 20px; /* Espaciado superior */
+    border-radius: 10px; /* Bordes redondeados para la tabla */
+    overflow: hidden; /* Esconder esquinas redondeadas */
+}
+
+.table th, .table td {
+    padding: 12px; /* Espaciado interno */
+    text-align: left; /* Alinear texto a la izquierda */
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre filas */
+}
+
+.table th {
+    background: #cf2d3a; /* Fondo semitransparente para el encabezado */
+    color: #ffffff; /* Texto blanco para el encabezado */
+}
+
+.table tr:hover {
+    background-color: rgba(207, 45, 58, 0.1); /* Color de fondo al pasar el mouse sobre la fila */
+}
+
+.table td {
+    color: #ffffff; /* Color negro para las celdas */
+}
+
+input[type="text"] {
+    margin-top: 20px; /* Margen superior */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 100%; /* Ancho total */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-family: 'Poppins', sans-serif; /* Aplica la fuente Poppins */
+    color: #000000; /* Color del texto en la barra de búsqueda */
+    background-color: #ffffff; /* Color de fondo de la barra de búsqueda */
+}
+
+/* Personaliza el color de fondo de la barra de búsqueda */
+input[type="text"] {
+    background-color: #d4d4d4; /* Color de fondo azul */
+    color: #000000; /* Color del texto (puedes cambiarlo si deseas) */
+}
+
+input[type="text"]:focus {
+    border-color: #ff0015; /* Color del borde al enfocar */
+    outline: none; /* Sin contorno */
+}
+
+

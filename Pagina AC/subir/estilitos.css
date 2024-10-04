@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('images/iiii.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    height: 100vh;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+header h2 {
+    color: #cf2d3a;
+    font-size: 32px;
+    font-weight: 800;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+header nav {
+    display: inline-block;
+}
+
+header nav a {
+    margin-left: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav a:hover {
+    color: #cf2d3a;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #cf2d3a;
+    margin-top: 40px;
+}
+
+form {
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    display: grid; /* Cambiado a grid para la disposición de campos */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px; /* Espacio entre los campos */
+}
+
+label {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 10px;
+    background-color: #1f1f1f;
+    border: 1px solid #cf2d3a;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    width: 100%; /* Mantiene el campo al ancho completo */
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #cf2d3a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px; /* Cambié el padding para hacer los botones más pequeños */
+    font-size: 14px; /* Cambié el tamaño de la fuente */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Poppins', sans-serif; /* Aplica el estilo de letra */
+}
+
+/* Agrupación de botones */
+.button-container {
+    display: flex; /* Flex para alinear botones horizontalmente */
+    justify-content: space-between; /* Espacio entre botones */
+    grid-column: span 2; /* Hace que los botones ocupen toda la fila */
+}

@@ -3,35 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario </title>
+    <title>Control Patrimonial</title>
+    <link rel="stylesheet" href="estilitos.css">
 </head>
 <body>
+
+    <!-- Sección de Control Patrimonial -->
+    <header>
+        <h2 style="color: #cf2d3a; display: inline;">Control Patrimonial</h2>
+        <nav style="display: inline; margin-left: 30px;">
+            <a href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a>
+            <a href="/A.C-Asset-Control-/Pagina%20AC/mirar/miratusdocumentos.php">Mira tus documentos</a>
+            <a href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a>
+            <a href="#">Pendientes</a>
+        </nav>
+    </header>
 
     <h1>Ingrese los Documentos Emitidos</h1>
 
     <form action="guardaremitidos.php" method="POST">
-        
         <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" required><br><br>
-
+        <input type="text" id="numero" name="numero" required>
+    
         <label for="oficina">Oficina:</label>
-        <input type="text" id="oficina" name="oficina" required><br><br>
-
+        <input type="text" id="oficina" name="oficina" required>
+    
         <label for="firma">Para:</label>
-        <input type="text" id="firma" name="firma" required><br><br>
-
+        <input type="text" id="firma" name="firma" required>
+    
         <label for="asunto">Asunto:</label>
-        <input type="text" id="asunto" name="asunto" required><br><br>
-
+        <input type="text" id="asunto" name="asunto" required>
+    
         <label for="adjunto">Adjunto:</label>
-        <input type="text" id="adjunto" name="adjunto" required><br><br>
-
+        <input type="text" id="adjunto" name="adjunto" required>
+    
         <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha" required><br><br>
-
-
-        <input type="submit" value="Enviar">
+        <input type="date" id="fecha" name="fecha" required>
+    
+        <!-- Contenedor de botones -->
+        <div class="button-container">
+            <input type="reset" value="Limpiar">
+            <input type="submit" value="Enviar">
+        </div>
     </form>
+    
+    
 
 </body>
 </html>
+
