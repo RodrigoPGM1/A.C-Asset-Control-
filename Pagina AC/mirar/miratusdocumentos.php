@@ -14,7 +14,8 @@ $result = $conexion->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mira tus documentos</title>
+    <link rel="icon" href="../logo titulo.png" type="image/png">
+    <title>Mirar Recibidos</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilo para el botón de eliminar */
