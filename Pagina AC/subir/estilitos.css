@@ -80,7 +80,8 @@ input[type="date"] {
 }
 
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+input[type="button"] {
     background-color: #cf2d3a;
     color: #ffffff;
     border: none;
@@ -90,6 +91,15 @@ input[type="reset"] {
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: 'Poppins', sans-serif; /* Aplica el estilo de letra */
+}
+
+/* Estilo para el botón "Subir a Drive" */
+input[type="button"] {
+    background-color: #cf2d3a; /* Color verde para el botón */
+}
+
+input[type="button"]:hover {
+    background-color: #cf2d3a; /* Color más oscuro al pasar el mouse */
 }
 
 /* Agrupación de botones */
