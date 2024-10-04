@@ -3,7 +3,7 @@
 include '../Controllers/Conexion.php';
 
 // Consulta para obtener los datos de la tabla "pendientes" ordenados por prioridad
-$sql = "SELECT numero, prioridad, fecha_creacion FROM pendientes ORDER BY prioridad ASC";
+$sql = "SELECT id, numero, prioridad, fecha_creacion FROM pendientes ORDER BY prioridad ASC";
 $result = $conexion->query($sql);
 
 // Iniciar la salida HTML
@@ -16,42 +16,25 @@ $result = $conexion->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../logo titulo.png" type="image/png">
     <title>Lista de Pendientes</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Estilo básico para la tabla */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 18px;
-            text-align: left;
-        }
-
-        th, td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Estilo para el botón de eliminar */
-        .btn-eliminar {
-            background-color: #ff0015; /* Color de fondo del botón */
-            color: white; /* Color del texto */
-            border: none; /* Sin borde */
-            padding: 5px 10px; /* Relleno del botón */
-            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-            border-radius: 5px; /* Bordes redondeados */
-        }
-
-        .btn-eliminar:hover {
-            background-color: #d60012; /* Color al pasar el mouse */
-        }
-    </style>
+    <link rel="stylesheet" href="esti.css"> <!-- Archivo CSS externo -->
 </head>
 <body>
+
+    <header class="header">
+        <div class="container">
+            <div class="menu">
+                <div class="logo">Control Patrimonial</div>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a></li>
+                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/mirar/miratusdocumentos.php">Mira tus documentos</a></li>
+                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
+                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/pendientes/formulario.html">Pendientes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
     <div class="container mt-4">
         <h2 class="text-center">Lista de Pendientes</h2>
@@ -63,6 +46,7 @@ $result = $conexion->query($sql);
                     <th>Número</th>
                     <th>Prioridad</th>
                     <th>Fecha de Creación</th>
+                    <th>Acciones</th> <!-- Columna de acciones -->
                 </tr>
             </thead>
             <tbody id="documentTable">
@@ -97,10 +81,19 @@ $result = $conexion->query($sql);
                         }
                         echo '<td>' . htmlspecialchars($prioridad_texto) . '</td>';
                         echo '<td>' . htmlspecialchars($row['fecha_creacion']) . '</td>';
+
+                        // Botón de eliminar
+                        echo "<td>
+                                <form action='delete_document.php' method='POST' onsubmit='return confirm(\"¿Estás seguro de que deseas eliminar este pendiente?\");'>
+                                    <input type='hidden' name='id' value='" . $row['id'] . "'>
+                                    <button type='submit' class='btn btn-danger custom-btn'>Eliminar</button>
+                                </form>
+                              </td>";
+
                         echo '</tr>';
                     }
                 } else {
-                    echo '<tr><td colspan="3" class="text-center">No hay registros disponibles.</td></tr>';
+                    echo '<tr><td colspan="4" class="text-center">No hay registros disponibles.</td></tr>';
                 }
 
                 // Cerrar la conexión
