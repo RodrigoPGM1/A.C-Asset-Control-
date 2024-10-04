@@ -36,3 +36,12 @@ CREATE TABLE emitidos (
 ALTER TABLE recibidos
 ADD COLUMN numero VARCHAR(50) NOT NULL;
 
+--pendientes--
+CREATE TABLE pendientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero VARCHAR(255) NOT NULL,
+    prioridad TINYINT NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+

@@ -2,8 +2,8 @@
 // Incluir el archivo de conexión
 include '../Controllers/Conexion.php';
 
-// Consulta para obtener los datos de la tabla "emitidos"
-$sql = "SELECT id, numero, oficina, firma, asunto, adjunto, fecha FROM emitidos";
+// Consulta para obtener los datos de la tabla "pendientes" ordenados por prioridad
+$sql = "SELECT numero, prioridad, fecha_creacion FROM pendientes ORDER BY prioridad ASC";
 $result = $conexion->query($sql);
 
 // Iniciar la salida HTML
@@ -14,9 +14,27 @@ $result = $conexion->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mira tus documentos emitidos</title>
+    <title>Lista de Pendientes</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Estilo básico para la tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
         /* Estilo para el botón de eliminar */
         .btn-eliminar {
             background-color: #ff0015; /* Color de fondo del botón */
@@ -34,38 +52,16 @@ $result = $conexion->query($sql);
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <div class="menu">
-                <div class="logo">Control Patrimonial</div>
-                <nav class="navbar">
-                    <ul>
-                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/paginaweb/index.html#">Inicio</a></li>
-                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/mirar/miratusdocumentos.php">Mira tus documentos</a></li>
-                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
-                        <li><a href="/A.C-Asset-Control-/Pagina%20AC/pendientes/formulario.html">Pendientes</a></li>
-                        <li><a href="#">Emitidos</a></li>
-                        <li><a href="#">Drive</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    
     <div class="container mt-4">
-        <h2 class="text-center">Lista de Documentos Emitidos</h2>
+        <h2 class="text-center">Lista de Pendientes</h2>
         <input type="text" id="searchInput" placeholder="Buscar en la tabla...">
-        
+
         <table class="table">
             <thead>
                 <tr>
                     <th>Número</th>
-                    <th>Oficina</th>
-                    <th>Firma</th>
-                    <th>Asunto</th>
-                    <th>Adjunto</th>
-                    <th>Fecha</th>
-                    <th>Acción</th> <!-- Nueva columna para el botón de eliminar -->
+                    <th>Prioridad</th>
+                    <th>Fecha de Creación</th>
                 </tr>
             </thead>
             <tbody id="documentTable">
@@ -76,16 +72,34 @@ $result = $conexion->query($sql);
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>';
                         echo '<td>' . htmlspecialchars($row['numero']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['oficina']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['firma']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['asunto']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['adjunto']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['fecha']) . '</td>';
-                        echo '<td><form action="delete_document.php" method="POST"><input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '"><button type="submit" class="btn-eliminar">Eliminar</button></form></td>'; // Botón para eliminar
+
+                        // Corregir la correspondencia de las prioridades
+                        switch ($row['prioridad']) {
+                            case 1:
+                                $prioridad_texto = 'Extrema Prioridad (1 día)';
+                                break;
+                            case 3:
+                                $prioridad_texto = 'Mucha Prioridad (3 días)';
+                                break;
+                            case 5:
+                                $prioridad_texto = 'Prioridad Intermedia (5 días)';
+                                break;
+                            case 7:
+                                $prioridad_texto = 'Poca Prioridad (7 días)';
+                                break;
+                            case 10:
+                                $prioridad_texto = 'Nada de Prioridad (10 días)';
+                                break;
+                            default:
+                                $prioridad_texto = 'Desconocida';
+                                break;
+                        }
+                        echo '<td>' . htmlspecialchars($prioridad_texto) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['fecha_creacion']) . '</td>';
                         echo '</tr>';
                     }
                 } else {
-                    echo '<tr><td colspan="7" class="text-center">No hay registros disponibles.</td></tr>';
+                    echo '<tr><td colspan="3" class="text-center">No hay registros disponibles.</td></tr>';
                 }
 
                 // Cerrar la conexión

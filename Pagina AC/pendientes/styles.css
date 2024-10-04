@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('images/iiii.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+    color: #ffffff; /* Texto blanco para mejor contraste */
+    position: relative; /* Para que los elementos hijos se posicionen en relación al body */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px; /* Espaciado interno */
+}
+
+.header {
+    padding: 20px 0; /* Espaciado superior e inferior */
+    position: relative; /* Para el posicionamiento de elementos */
+    z-index: 1; /* Asegúrate de que el header esté encima del fondo */
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between; /* Espacio entre logo y navegación */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.logo {
+    font-size: 24px; /* Tamaño del texto del logo */
+    color: #cf2d3a; /* Color del texto del logo */
+    font-weight: 800; /* Grosor de la fuente */
+}
+
+.navbar ul {
+    display: flex; /* Alínea los elementos en fila */
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Espaciado entre los elementos del menú */
+}
+
+.navbar ul li a {
+    font-size: 18px; /* Tamaño de la fuente */
+    color: #ffffff; /* Color de los enlaces */
+    padding: 10px 15px; /* Espaciado interno */
+    transition: color 0.3s; /* Transición suave para el hover */
+}
+
+.navbar ul li a:hover {
+    color: #cf2d3a; /* Color de los enlaces al pasar el mouse */
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0; /* Espaciado superior e inferior */
+    font-size: 28px; /* Tamaño de fuente para el título del formulario */
+}
+
+.documentos-recibidos {
+    text-align: center; /* Centra el texto */
+    color: #cf2d3a; /* Color rojo */
+    font-size: 32px; /* Aumenta el tamaño de la fuente */
+    margin-top: 20px; /* Espacio superior para separar del header */
+    margin-bottom: 20px; /* Espacio inferior para separar del formulario */
+}
+
+form {
+    display: flex; /* Usar flex para el formulario en fila */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en la siguiente línea si es necesario */
+    gap: 20px; /* Espacio entre los campos */
+    padding: 20px; /* Espaciado interno del formulario */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 800px; /* Limitar el ancho del formulario */
+    position: absolute; /* Posicionar de forma absoluta */
+    top: 50%; /* Colocar en el 50% de la altura del viewport */
+    left: 50%; /* Colocar en el 50% de la anchura del viewport */
+    transform: translate(-50%, -50%); /* Centrar el formulario */
+}
+
+label {
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
+    width: 100%; /* Asegurar que cada etiqueta ocupa toda la fila */
+    font-weight: 600; /* Hacer la fuente un poco más gruesa */
+}
+
+.input-priority {
+    display: flex; /* Usar flexbox para el campo de prioridad */
+    flex-direction: column; /* Colocar etiquetas y selectores en columna */
+    width: 100%; /* Ancho completo */
+}
+
+input[type="text"],
+input[type="datetime-local"],
+textarea,
+select {
+    padding: 10px; /* Espaciado interno de los campos */
+    background-color: #1f1f1f; /* Fondo de los campos */
+    border: 1px solid #cf2d3a; /* Bordes del campo */
+    border-radius: 5px; /* Bordes redondeados */
+    color: #ffffff; /* Color del texto en los campos */
+    font-size: 14px; /* Tamaño de fuente en los campos */
+    width: 100%; /* Ancho completo dentro de su celda */
+}
+
+.button-container {
+    display: flex; /* Usar flexbox para alinear los botones */
+    justify-content: center; /* Centrar horizontalmente */
+    margin-top: 20px; /* Espacio superior para los botones */
+    width: 100%; /* Ancho completo */
+}
+
+input[type="submit"],
+input[type="button"] {
+    margin: 0 10px; /* Espaciado horizontal entre los botones */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    background-color: #cf2d3a; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    width: auto; /* Tamaño automático según el contenido del botón */
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #b4272e; /* Color de fondo al pasar el mouse */
+}
