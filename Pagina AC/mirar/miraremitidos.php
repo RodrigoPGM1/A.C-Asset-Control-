@@ -3,7 +3,7 @@
 include '../Controllers/Conexion.php';
 
 // Consulta para obtener los datos de la tabla "emitidos"
-$sql = "SELECT id, numero, oficina, firma, asunto, adjunto, fecha FROM emitidos";
+$sql = "SELECT id, numero, oficina, firma, asunto, adjunto, fecha, observacion FROM emitidos";
 $result = $conexion->query($sql);
 
 // Iniciar la salida HTML
@@ -66,7 +66,8 @@ $result = $conexion->query($sql);
                     <th>Asunto</th>
                     <th>Adjunto</th>
                     <th>Fecha</th>
-                    <th>Acción</th> <!-- Nueva columna para el botón de eliminar -->
+                    <th>Observaciones</th> <!-- Nueva columna para Observaciones -->
+                    <th>Acción</th> <!-- Columna para el botón de eliminar -->
                 </tr>
             </thead>
             <tbody id="documentTable">
@@ -82,11 +83,12 @@ $result = $conexion->query($sql);
                         echo '<td>' . htmlspecialchars($row['asunto']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['adjunto']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['fecha']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['observacion']) . '</td>'; // Nueva columna Observación
                         echo '<td><form action="delete_document.php" method="POST"><input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '"><button type="submit" class="btn-eliminar">Eliminar</button></form></td>'; // Botón para eliminar
                         echo '</tr>';
                     }
                 } else {
-                    echo '<tr><td colspan="7" class="text-center">No hay registros disponibles.</td></tr>';
+                    echo '<tr><td colspan="8" class="text-center">No hay registros disponibles.</td></tr>'; // Actualizamos el colspan para que coincida con las columnas
                 }
 
                 // Cerrar la conexión

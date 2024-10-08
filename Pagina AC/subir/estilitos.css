@@ -93,18 +93,69 @@ input[type="button"] {
     font-family: 'Poppins', sans-serif; /* Aplica el estilo de letra */
 }
 
-/* Estilo para el botón "Subir a Drive" */
-input[type="button"] {
-    background-color: #cf2d3a; /* Color verde para el botón */
-}
-
-input[type="button"]:hover {
-    background-color: #cf2d3a; /* Color más oscuro al pasar el mouse */
-}
-
 /* Agrupación de botones */
 .button-container {
     display: flex; /* Flex para alinear botones horizontalmente */
     justify-content: space-between; /* Espacio entre botones */
     grid-column: span 2; /* Hace que los botones ocupen toda la fila */
 }
+
+/* Estilo para el campo de subir archivos */
+input[type="file"] {
+    padding: 10px;
+    background-color: #1f1f1f;
+    border: 1px solid #cf2d3a;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    width: 100%; /* Mantén el ancho completo */
+}
+
+/* Estilo para la lista de archivos */
+.file-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin-top: 10px;
+    color: #ffffff;
+    max-height: 150px;
+    overflow-y: auto;
+    grid-column: span 2; /* Ocupará toda la fila, igual que los botones */
+    border: 1px solid #cf2d3a; /* Borde de la vista previa */
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+/* Estilo general de los botones */
+input[type="reset"], input[type="submit"] {
+    background-color: #cf2d3a; /* Fondo rojo */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Relleno */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+input[type="reset"]:hover, input[type="submit"]:hover {
+    background-color: #a12024; /* Color al pasar el mouse */
+}
+/* Estilo para el campo de observación */
+textarea {
+    font-family: 'Poppins', sans-serif; /* Estilo de letra Poppins */
+    padding: 10px; /* Espaciado interno */
+    background-color: #1f1f1f; /* Color de fondo */
+    border: 1px solid #cf2d3a; /* Borde del textarea */
+    border-radius: 5px; /* Bordes redondeados */
+    color: #ffffff; /* Color del texto */
+    font-size: 14px; /* Tamaño de la fuente */
+    width: 100%; /* Ancho completo */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+    resize: vertical; /* Permitir que el usuario cambie el tamaño verticalmente */
+    min-height: 100px; /* Altura mínima */
+}
+
+/* Ajuste del label para Observación */
+label[for="observacion"] {
+    font-size: 16px; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+}
+

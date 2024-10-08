@@ -44,4 +44,7 @@ CREATE TABLE pendientes (
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+--columna nueva--
+ALTER TABLE recibidos
+ADD COLUMN observacion TEXT;
 

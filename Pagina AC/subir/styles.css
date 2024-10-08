@@ -67,6 +67,7 @@ h1 {
     margin: 20px 0; /* Espaciado superior e inferior */
     font-size: 28px; /* Tamaño de fuente para el título del formulario */
 }
+
 .documentos-recibidos {
     text-align: center; /* Centra el texto */
     color: #cf2d3a; /* Color rojo */
@@ -75,7 +76,6 @@ h1 {
     margin-bottom: 20px; /* Espacio inferior para separar del formulario */
 }
 
-
 form {
     display: grid; /* Usar grid para el formulario */
     grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
@@ -83,10 +83,8 @@ form {
     padding: 20px; /* Espaciado interno del formulario */
     border-radius: 10px; /* Bordes redondeados */
     max-width: 800px; /* Limitar el ancho del formulario */
-    position: absolute; /* Posicionar de forma absoluta */
-    top: 50%; /* Colocar en el 50% de la altura del viewport */
-    left: 50%; /* Colocar en el 50% de la anchura del viewport */
-    transform: translate(-50%, -50%); /* Centrar el formulario */
+    position: relative; /* Posicionar de forma relativa */
+    margin: 0 auto; /* Centrar el formulario */
 }
 
 label {
@@ -130,4 +128,19 @@ input[type="button"]:hover {
     background-color: #b4272e; /* Color de fondo al pasar el mouse */
 }
 
+/* Estilo para la vista previa de archivos */
+#file-preview {
+    margin-top: 10px; /* Espacio superior para la vista previa */
+    padding: 10px; /* Espaciado interno */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border: 1px solid #cf2d3a; /* Borde de la vista previa */
+    border-radius: 5px; /* Bordes redondeados */
+    color: #ffffff; /* Color de texto */
+    max-height: 150px; /* Altura máxima */
+    overflow-y: auto; /* Scroll si hay más contenido */
+}
 
+#file-preview p {
+    margin: 5px 0; /* Espacio entre los nombres de archivo */
+    font-size: 14px; /* Tamaño de fuente para los nombres de archivo */
+}

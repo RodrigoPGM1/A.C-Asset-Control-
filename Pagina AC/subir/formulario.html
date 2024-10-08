@@ -6,7 +6,6 @@
     <link rel="icon" href="../logo titulo.png" type="image/png">
     <title>Subir Recibidos</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="style.css"> <!-- Enlace a tu CSS -->
     <script>
         // Función para limpiar los campos del formulario
         function limpiarFormulario() {
@@ -19,6 +18,21 @@
             document.getElementById("oficio").value = "";
             document.getElementById("asunto").value = "";
             document.getElementById("fecha").value = "";
+            document.getElementById("archivos").value = "";
+            document.getElementById("file-preview").innerHTML = ""; // Limpiar la vista previa de archivos
+        }
+
+        // Mostrar la vista previa de los nombres de los archivos seleccionados
+        function mostrarArchivos(event) {
+            const input = event.target;
+            const preview = document.getElementById("file-preview");
+            preview.innerHTML = ""; // Limpiar vista previa anterior
+
+            for (let i = 0; i < input.files.length; i++) {
+                const archivo = document.createElement("p");
+                archivo.textContent = input.files[i].name;
+                preview.appendChild(archivo);
+            }
         }
     </script>
 </head>
@@ -46,7 +60,7 @@
     <div class="documentos-recibidos">Ingresa tus documentos recibidos</div>
 
     <!-- Sección del formulario para ingresar documentos recibidos -->
-    <form action="guardar.php" method="POST">
+    <form action="guardar.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="numero">Número:</label>
             <input type="text" id="numero" name="numero" required>
@@ -92,15 +106,24 @@
             <input type="datetime-local" id="fecha" name="fecha" required>
         </div>
 
-        <input type="hidden" name="id" value="0"> <!-- Campo ID oculto -->
+        <div class="form-group">
+            <label for="observacion">Observación:</label>
+            <textarea id="observacion" name="observacion" required></textarea>
+        </div>
+        
+
+        <!-- Campo para subir archivos -->
+        <div class="form-group">
+            <label for="archivos">Subir archivos (PDF, Word, Excel, imágenes):</label>
+            <input type="file" id="archivos" name="archivos[]" multiple accept=".pdf, .doc, .docx, .xls, .xlsx, .jpg, .png" onchange="mostrarArchivos(event)">
+            <div id="file-preview"></div> <!-- Vista previa de archivos -->
+        </div>
+        
 
         <!-- Botones de Guardar, Limpiar y Subir a Drive -->
         <div class="button-container">
             <input type="submit" value="Guardar Documento">
             <input type="button" value="Limpiar" onclick="limpiarFormulario()">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScvA-aqgHiaQ8mMsVDvla7SrY2MghIWzkMO8_uGxzS0qs_sOg/viewform?usp=sf_link" target="_blank">
-                <input type="button" value="Subir a Drive">
-            </a>
         </div>
     </form>
 </body>

@@ -3,7 +3,7 @@
 include '../Controllers/Conexion.php';
 
 // Consulta para obtener los datos de la tabla "recibidos"
-$sql = "SELECT id, numero, oficina, documento, expediente, firma, cargo, oficio, asunto, fecha FROM recibidos";
+$sql = "SELECT id, numero, oficina, documento, expediente, firma, cargo, oficio, asunto, fecha, observacion FROM recibidos"; // Asegúrate de que "observacion" sea el nombre correcto de la columna en tu tabla
 $result = $conexion->query($sql);
 
 // Iniciar la salida HTML
@@ -69,6 +69,7 @@ $result = $conexion->query($sql);
                     <th>Oficio</th>
                     <th>Asunto</th>
                     <th>Fecha</th>
+                    <th>Observación</th> <!-- Nueva columna para observación -->
                     <th>Acción</th> <!-- Nueva columna para el botón de eliminar -->
                 </tr>
             </thead>
@@ -88,11 +89,12 @@ $result = $conexion->query($sql);
                         echo '<td>' . htmlspecialchars($row['oficio']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['asunto']) . '</td>';
                         echo '<td>' . htmlspecialchars($row['fecha']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['observacion']) . '</td>'; // Mostrar observación
                         echo '<td><form action="borrar.php" method="POST"><input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '"><button type="submit" class="btn-eliminar">Eliminar</button></form></td>'; // Botón para eliminar
                         echo '</tr>';
                     }
                 } else {
-                    echo '<tr><td colspan="10" class="text-center">No hay registros disponibles.</td></tr>';
+                    echo '<tr><td colspan="11" class="text-center">No hay registros disponibles.</td></tr>'; // Cambiar a 11 para la nueva columna
                 }
 
                 // Cerrar la conexión
