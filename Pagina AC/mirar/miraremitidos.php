@@ -46,7 +46,7 @@ $result = $conexion->query($sql);
                         <li><a href="/A.C-Asset-Control-/Pagina%20AC/subir/formulario.html">Sube tus documentos</a></li>
                         <li><a href="/A.C-Asset-Control-/Pagina%20AC/pendientes/formulario.html">Pendientes</a></li>
                         <li><a href="#">Emitidos</a></li>
-                        <li><a href="#">Drive</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1-vIS02krhzr23xi6gOJDmM_aEb51ut9Y" target="_blank">Drive</a></li>
                     </ul>
                 </nav>
             </div>
